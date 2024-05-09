@@ -71,7 +71,7 @@ export default function App() {
       <HashRouter>
         <BrowserRouter basename="">
         <Switch>
-          {/* <Route path='/' component={HomePage} /> */}
+          <Route path='/' component={HomePage} />
           <Route exact path="/map" render={(props) => <Admin {...props} />} />
           <Redirect from="/" to="map" />
           <Route component={NotFound} />
