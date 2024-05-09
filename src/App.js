@@ -69,14 +69,12 @@ export default function App() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <BrowserRouter basename="/">
         <Switch>
           {/* <Route path='/' component={HomePage} /> */}
           <Route exact path="/map" render={(props) => <Admin {...props} />} />
           <Redirect from="/" to="map" />
           <Route component={NotFound} />
         </Switch>
-        </BrowserRouter>
       </HashRouter>
     </Provider>
   );
