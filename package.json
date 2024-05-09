@@ -26,7 +26,7 @@
     "wordcloud": "^1.2.2"
   },
   "scripts": {
-    "predeploy": "npm run build --legacy-peer-deps",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "npx react-scripts start",
     "build": "react-scripts build",
