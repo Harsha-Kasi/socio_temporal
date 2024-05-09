@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/SEINet-Cactus/static/css/main.34de6062.chunk.css",
+    "main.js": "/SEINet-Cactus/static/js/main.5b5c185f.chunk.js",
+    "main.js.map": "/SEINet-Cactus/static/js/main.5b5c185f.chunk.js.map",
+    "runtime-main.js": "/SEINet-Cactus/static/js/runtime-main.8b86dde1.js",
+    "runtime-main.js.map": "/SEINet-Cactus/static/js/runtime-main.8b86dde1.js.map",
+    "static/js/2.6ac0c1b1.chunk.js": "/SEINet-Cactus/static/js/2.6ac0c1b1.chunk.js",
+    "static/js/2.6ac0c1b1.chunk.js.map": "/SEINet-Cactus/static/js/2.6ac0c1b1.chunk.js.map",
+    "index.html": "/SEINet-Cactus/index.html",
+    "precache-manifest.889e6b66f677489bff6e2bebbd8ebfc2.js": "/SEINet-Cactus/precache-manifest.889e6b66f677489bff6e2bebbd8ebfc2.js",
+    "service-worker.js": "/SEINet-Cactus/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/SEINet-Cactus/static/css/main.34de6062.chunk.css.map",
+    "static/js/2.6ac0c1b1.chunk.js.LICENSE.txt": "/SEINet-Cactus/static/js/2.6ac0c1b1.chunk.js.LICENSE.txt",
+    "static/media/bubble-pop.gif": "/SEINet-Cactus/static/media/bubble-pop.fa1bf3d3.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b86dde1.js",
+    "static/js/2.6ac0c1b1.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.5b5c185f.chunk.js"
+  ]
+}
