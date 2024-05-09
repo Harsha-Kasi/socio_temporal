@@ -1,0 +1,56 @@
+{
+  "homepage": "https://kiran-kodali-10.github.io/SEINet-Cactus",
+  "name": "seinet-cactus",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "d3": "^7.8.5",
+    "kepler.gl": "^2.0.1",
+    "plotly.js": "^2.23.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-palm": "^3.1.2",
+    "react-plotly.js": "^2.6.0",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-wordcloud": "^1.2.7",
+    "redux": "^4.0.5",
+    "styled-components": "^5.0.1",
+    "swr": "^0.1.18",
+    "wordcloud": "^1.2.2"
+  },
+  "scripts": {
+    "start": "npx react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "clean": "gh-pages-clean",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "proxy": "http://18.191.205.35:5000"
+}
