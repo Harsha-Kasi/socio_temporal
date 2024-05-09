@@ -26,10 +26,10 @@
     "wordcloud": "^1.2.2"
   },
   "scripts": {
-    "start": "npx react-scripts start",
-    "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "npx react-scripts start",
+    "build": "react-scripts build",
     "clean": "gh-pages-clean",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
