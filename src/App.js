@@ -69,7 +69,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <BrowserRouter basename="/SEINet-Cactus">
+        <BrowserRouter basename="">
         <Switch>
           {/* <Route path='/' component={HomePage} /> */}
           <Route exact path="/map" render={(props) => <Admin {...props} />} />
