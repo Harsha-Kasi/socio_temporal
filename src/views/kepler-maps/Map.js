@@ -63,16 +63,44 @@ export default function Map() {
                 lat: 'lat',
                 lng: 'long'
               },
-              isVisible: zoomLevel <= 3, // Default visibility set based on zoom level inside useEffect
+              isVisible: true, // Assuming you want this visible initially or manage via zoom level
               visConfig: {
-                radius: 50,
-                opacity: 0.6,
+                radius: 30,
+                fixedRadius: false,
+                opacity: 0.8,
+                outline: false,
+                thickness: 2,
                 colorRange: {
-                  name: 'Uber Viz Qualitative 1.5',
-                  type: 'qualitative',
+                  name: 'Global Warming',
+                  type: 'sequential',
+                  category: 'Uber',
                   colors: ['#FFC300', '#F1920E', '#E3611C', '#C70039', '#900C3F', '#5A1846']
-                }
-              }
+                },
+                strokeColorRange: {
+                  name: 'Global Warming',
+                  type: 'sequential',
+                  category: 'Uber',
+                  colors: ['#FFC300', '#F1920E', '#E3611C', '#C70039', '#900C3F', '#5A1846']
+                },
+                radiusRange: [10, 300]
+              },
+              textLabel: [{
+                field: {
+                  name: 'count',
+                  type: 'integer'
+                },
+                color: [255, 255, 255],
+                size: 18,
+                offset: [0, 0],
+                anchor: 'middle',
+                alignment: 'center'
+              }]
+            },
+            visualChannels: {
+              colorField: { name: 'label', type: 'string' },
+              colorScale: 'quantile',
+              sizeField: { name: 'count', type: 'integer' },
+              sizeScale: 'sqrt' 
             }
           }
         ],
@@ -187,6 +215,8 @@ export default function Map() {
 
   return (
     <div className="map-container">
+            <input type="range" min="1" max="10" value={zoomLevel} onChange={e => handleZoomChange(parseInt(e.target.value))} />
+
       <KeplerGl
         id="cactus"
         mapboxApiAccessToken="pk.eyJ1IjoidWNmLW1hcGJveCIsImEiOiJja3RpeXhkaXcxNzJtMnZxbmtkcnJuM3BkIn0.kGmGlkbuWaCBf7_RrZXULg"
@@ -194,7 +224,6 @@ export default function Map() {
         height={window.innerHeight}
         onClick={handlePointClick}
       />
-      <input type="range" min="1" max="10" value={zoomLevel} onChange={e => handleZoomChange(parseInt(e.target.value))} />
     </div>
   );
 }
