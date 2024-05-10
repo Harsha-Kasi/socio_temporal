@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
 import useSwr from "swr";
-import { KeplerGlSchema } from "kepler.gl/dist/schemas";
 import Processors from 'kepler.gl/processors';
 import csvData from "../../data/d.csv.js";
+import csvData1 from "../../data/d1.csv.js";
+import { setZoomLevel } from './actions.js';
 
 export default function Map() {
   const dispatch = useDispatch();
+  const [zoomLevel, setLocalZoomLevel] = React.useState(2);
 
   const { data } = useSwr("covid", async () => {
     const response = await fetch(
@@ -19,8 +21,10 @@ export default function Map() {
   });
 
   var processedData = {};
+  var processedData1 = {};
 
-  const config = {
+
+  const initialConfig = {
     "version": "v1",
     "config": {
       "visState": {
@@ -48,7 +52,30 @@ export default function Map() {
               name: "label",
               type: "string"
             }, "colorScale": "quantile", "strokeColorField": null, "strokeColorScale": "quantile", "sizeField": null, "sizeScale": "linear" }
-          }],
+          },
+          {
+            id: 'country-layer',
+            type: 'point',
+            config: {
+              dataId: 'countryData',
+              label: 'Country Aggregates',
+              columns: {
+                lat: 'lat',
+                lng: 'long'
+              },
+              isVisible: zoomLevel <= 3, // Default visibility set based on zoom level inside useEffect
+              visConfig: {
+                radius: 50,
+                opacity: 0.6,
+                colorRange: {
+                  name: 'Uber Viz Qualitative 1.5',
+                  type: 'qualitative',
+                  colors: ['#FFC300', '#F1920E', '#E3611C', '#C70039', '#900C3F', '#5A1846']
+                }
+              }
+            }
+          }
+        ],
         "interactionConfig": {
           "tooltip": {
             "fieldsToShow": {
@@ -71,7 +98,7 @@ export default function Map() {
         "latitude": 29.075014282687626,
         "longitude": -105.61366862499517,
         "pitch": 0,
-        "zoom": 4,
+        "zoom": zoomLevel,
         "isSplit": false
       },
       "mapStyle":
@@ -110,18 +137,39 @@ export default function Map() {
 
 
     processedData = Processors.processCsvData(csvData);
+    processedData1 = Processors.processCsvData(csvData1);
     console.log(processedData)
 
-    const dataset = {
-      data: processedData,
-      info: {
-        id: "cactus"
-      },
-      config: config,
-    }
+    const datasets = [
+  
+      {data: processedData,
+      info: {id: "cactus"}},
+      {data: processedData1,
+        info: {id: "countryData"}}
+    ]
+
+    const config = {
+      ...initialConfig,
+      config: {
+        ...initialConfig.config,
+        visState: {
+          ...initialConfig.config.visState,
+          layers: initialConfig.config.visState.layers.map(layer => {
+            if (layer.id === '7l1g4uu') {
+              layer.config.isVisible = zoomLevel > 3;
+            }
+            if (layer.id === 'country-layer') {
+              layer.config.isVisible = zoomLevel <= 3;
+            }
+            return layer;
+          })
+        }
+      }
+    };
+    
     dispatch(
       addDataToMap({
-        datasets: dataset,
+        datasets: datasets,
         config: config,
         options: {
           centerMap: true,
@@ -130,7 +178,12 @@ export default function Map() {
         }
       })
     );
-  }, [dispatch, processedData]);
+    dispatch(setZoomLevel(zoomLevel));
+  }, [dispatch, processedData,zoomLevel]);
+
+  const handleZoomChange = (newZoomLevel) => {
+    setLocalZoomLevel(newZoomLevel);  // Update local state
+  };
 
   return (
     <div className="map-container">
@@ -141,6 +194,7 @@ export default function Map() {
         height={window.innerHeight}
         onClick={handlePointClick}
       />
+      <input type="range" min="1" max="10" value={zoomLevel} onChange={e => handleZoomChange(parseInt(e.target.value))} />
     </div>
   );
 }

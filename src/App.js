@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route, HashRouter, Redirect } from 'react-router
 import Admin from "./layout/Admin";
 import NotFound from "./404_Error";
 import HomePage from "./views/HomePage/HomePage";
+import { SET_ZOOM_LEVEL } from './views/kepler-maps/actions';
 
 const customizedKeplerGlReducer = keplerGlReducer
   .initialState({
@@ -41,7 +42,29 @@ const customizedKeplerGlReducer = keplerGlReducer
         ...state.uiState,
         readOnly: !state.uiState.readOnly
       }
-    })
+    }),
+    [SET_ZOOM_LEVEL]: (state, action) => {
+      const { zoomLevel } = action.payload;
+      const newLayers = state.visState.layers.map(layer => {
+        if (layer.id === 'country-layer') {
+          // Set visibility based on zoom level
+          layer.config.isVisible = zoomLevel <= 3;
+        }
+        if (layer.id === '7l1g4uu') {
+          // Adjust this condition as needed
+          layer.config.isVisible = zoomLevel > 3;
+        }
+        return layer;
+      });
+
+      return {
+        ...state,
+        visState: {
+          ...state.visState,
+          layers: newLayers
+        }
+      };
+    }
   });
 
 const keplerClickMiddleware = store => next => action => {
