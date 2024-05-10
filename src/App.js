@@ -3,7 +3,7 @@ import keplerGlReducer, { uiStateUpdaters } from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider } from "react-redux";
-import { BrowserRouter, Switch, Route, HashRouter, Redirect } from 'react-router-dom';
+import { Switch, Route, HashRouter, Redirect } from 'react-router-dom';
 import Admin from "./layout/Admin";
 import NotFound from "./404_Error";
 import HomePage from "./views/HomePage/HomePage";
