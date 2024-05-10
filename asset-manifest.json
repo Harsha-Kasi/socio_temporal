@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/socio_temporal/static/css/main.34de6062.chunk.css",
-    "main.js": "/socio_temporal/static/js/main.176bacee.chunk.js",
-    "main.js.map": "/socio_temporal/static/js/main.176bacee.chunk.js.map",
+    "main.js": "/socio_temporal/static/js/main.818abf98.chunk.js",
+    "main.js.map": "/socio_temporal/static/js/main.818abf98.chunk.js.map",
     "runtime-main.js": "/socio_temporal/static/js/runtime-main.8f10a175.js",
     "runtime-main.js.map": "/socio_temporal/static/js/runtime-main.8f10a175.js.map",
     "static/js/2.87405984.chunk.js": "/socio_temporal/static/js/2.87405984.chunk.js",
     "static/js/2.87405984.chunk.js.map": "/socio_temporal/static/js/2.87405984.chunk.js.map",
     "index.html": "/socio_temporal/index.html",
-    "precache-manifest.862f66d401deb07697ec925176cae156.js": "/socio_temporal/precache-manifest.862f66d401deb07697ec925176cae156.js",
+    "precache-manifest.d775c329eaad744b2c3ed6658d33a409.js": "/socio_temporal/precache-manifest.d775c329eaad744b2c3ed6658d33a409.js",
     "service-worker.js": "/socio_temporal/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/socio_temporal/static/css/main.34de6062.chunk.css.map",
     "static/js/2.87405984.chunk.js.LICENSE.txt": "/socio_temporal/static/js/2.87405984.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.8f10a175.js",
     "static/js/2.87405984.chunk.js",
     "static/css/main.34de6062.chunk.css",
-    "static/js/main.176bacee.chunk.js"
+    "static/js/main.818abf98.chunk.js"
   ]
 }
