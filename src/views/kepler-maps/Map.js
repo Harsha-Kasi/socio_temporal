@@ -214,8 +214,13 @@ export default function Map() {
   };
 
   return (
-    <div className="map-container">
-            <input type="range" min="1" max="10" value={zoomLevel} onChange={e => handleZoomChange(parseInt(e.target.value))} />
+    <div className="map-container" style={{backgroundColor:"#29323c"}}>
+      <br/>
+      <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
+  <h4 style={{margin: "0 1rem 0 0"}}>Set zoom level here:</h4>
+  <input type="range" min="1" max="10" value={zoomLevel} onChange={e => handleZoomChange(parseInt(e.target.value))} />
+</div>
+
 
       <KeplerGl
         id="cactus"
