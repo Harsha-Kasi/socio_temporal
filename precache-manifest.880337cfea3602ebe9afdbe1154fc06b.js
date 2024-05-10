@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "272ad2a114b2a87ca17d873671478eda",
+    "revision": "2b4814e382bda8d5282e8e42f744aa31",
     "url": "/socio_temporal/index.html"
   },
   {
-    "revision": "7755d7827d1f392c0597",
+    "revision": "4c755f70e43748e0bf18",
     "url": "/socio_temporal/static/css/main.34de6062.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/socio_temporal/static/js/2.87405984.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7755d7827d1f392c0597",
-    "url": "/socio_temporal/static/js/main.8dd053e6.chunk.js"
+    "revision": "4c755f70e43748e0bf18",
+    "url": "/socio_temporal/static/js/main.457d74a9.chunk.js"
   },
   {
     "revision": "736b58410b7e0cdd0661",
